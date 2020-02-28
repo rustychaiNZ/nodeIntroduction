@@ -22,3 +22,4 @@ $(document).ready(function(){
 	total(21,23);
 
 });
+
