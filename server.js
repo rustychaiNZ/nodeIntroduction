@@ -3,6 +3,8 @@ const http = require('http');
 // use this for file transaction
 const fs = require('fs'); 
 const path = require('path');
+// Buffer or temp memory on the client side and stores the user's request/data (Data that is not sensitive)
+const qs = require('querystring');
 
 const server = http.createServer((req, res) =>{
 	// res.writeHead(200, {'Content-Type' : 'text/plain'});
@@ -110,8 +112,29 @@ const server = http.createServer((req, res) =>{
 			res.writeHead(200, {'Content-Type' : 'plain/text'});
 			res.end('404 error - file not found');
 		}
-	} // Method ends here
-});
+	} // Get method ends here
+
+	// Post method starts here
+	else if(req.method === 'POST'){
+		if(req.url === '/sendForm'){
+			// alert('Your form has been submitted');
+			let body = '';
+
+			req.on('data' , function(data){
+				// body = body + data
+				body += data;
+			});
+
+			req.on('end' , function(){
+				console.log('Form data ends');
+				console.log(body.toString());
+				const formData = qs.parse(body.toString());
+				console.log(formData);
+			});
+		}
+	} // Post method ends here
+
+}); // Server structure finishes here
 
 // Usually use port 3000 for setting up our http server
 server.listen(3000);

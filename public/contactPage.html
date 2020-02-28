@@ -32,20 +32,32 @@
 		<!-- Header ends -->
 	
 		<!-- Website contents -->
-		<div class="container shadow mb-5 bg-light">
-			<div class="row">
-				<!--  -->
-				<div class="col-6">
-					<label for="name">Name:</label>
-					<input type="text" placeholder="enter name" class="form-control">
-					<label for="address">Address:</label>
-					<input type="text" placeholder="Enter Street address" class="form-control">
+		<div class="container shadow mb-5 bg-light pt-3">
+			<!-- Form -->
+			<form action="sendForm" method="post" class="border border-danger p-3">
+				<div class="row">
+					<div class="col-6">
+						<label for="fName">First Name:</label>
+						<input type="text" name="fName" id="fName" placeholder="Enter your first name" class="form-control">
+						<label for="lName" id="lName">Last Name:</label>
+						<input type="text" name="lName" placeholder="Enter your last name" class="form-control">
+						<label for="personToContact">Enter name of person that you want to contact:</label>
+						<input type="text" name="personToContact" id="personToContact" placeholder="Contactee first and last name" class="form-control">
+					</div>
+					<div class="col-6">
+						<label for="email">Email:</label>
+						<input type="text" name="email" id="email" class="form-control" placeholder="Enter email">
+						<label for="message">Message:</label>
+						<textarea id="message" name="message" class="form-control" rows="4" placeholder="Enter message for website admin to pass on"></textarea>
+					</div>
 				</div>
-				<div class="col-6">
-					<label for="email">Email</label>
-					<input type="text" class="form-control" placeholder="enter email">
+				<div class="row">
+					<div class="col-12">
+						<button class="btn btn-lg btn-block btn-outline-danger mt-3" type="submit" id="submitForm">Subimt</button>
+					</div>
 				</div>
-			</div>
+			</form>
+			<!-- Form ends -->
 		</div>
 		<!-- Website contents end -->
 
